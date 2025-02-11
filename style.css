@@ -9,7 +9,7 @@ body {
     height: 100vh;
     justify-content: space-between;
     align-items: center;
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 svg {
@@ -47,15 +47,16 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(50% - 20px); /* Increase width to 50% of the container */
-    max-width: 450px; /* Increase max-width to make the container larger */
+    width: calc(50% - 20px);
+    max-width: 450px;
 }
 
 /* Ensure the image fills the container */
 .image-container img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
 }
 
 .image-container:hover {
@@ -101,7 +102,6 @@ input {
     transform: scale(1.1);
 }
 
-/* New loading animation for strings getting knotted and unknotted */
 @keyframes knot {
     0% {
         transform: rotate(0deg) scale(1);
@@ -120,12 +120,10 @@ input {
     }
 }
 
-/* Apply the knot animation to the loading icon */
 .fa-spinner {
-    animation: knot 2s linear infinite; /* Continuous knotting animation */
+    animation: knot 2s linear infinite;
 }
 
-/* Submit icon animation */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -136,32 +134,31 @@ input {
 }
 
 .fa-paper-plane {
-    animation: bounce 1s infinite; /* Continuous bounce animation */
+    animation: bounce 1s infinite;
 }
 
-/* Quote container styles */
 .quote-container {
     width: 100%;
     max-width: 900px;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Start slightly below */
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .quote-container.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Move to original position */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .quote-container.hidden {
-    opacity: 0; /* Fade out */
-    transform: translateY(-20px); /* Move slightly up */
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 #quote-text {
